@@ -42,7 +42,7 @@ public:
     QComboBox *comboBox;
     QSpacerItem *verticalSpacer;
     QListWidget *listWidget_2;
-    QListWidget *listWidget;
+    QListWidget *console;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuHelp;
@@ -96,12 +96,12 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout);
 
-        listWidget = new QListWidget(centralWidget);
-        listWidget->setObjectName(QStringLiteral("listWidget"));
-        listWidget->setMinimumSize(QSize(0, 200));
-        listWidget->setMaximumSize(QSize(16777215, 500));
+        console = new QListWidget(centralWidget);
+        console->setObjectName(QStringLiteral("console"));
+        console->setMinimumSize(QSize(0, 200));
+        console->setMaximumSize(QSize(16777215, 500));
 
-        verticalLayout_2->addWidget(listWidget);
+        verticalLayout_2->addWidget(console);
 
 
         verticalLayout_3->addLayout(verticalLayout_2);
