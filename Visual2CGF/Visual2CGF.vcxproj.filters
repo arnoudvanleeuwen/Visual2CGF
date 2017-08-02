@@ -62,6 +62,9 @@
     <ClCompile Include="include\pugixml-1.8\pugixml.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.h">
@@ -86,6 +89,9 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_optionswindow.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

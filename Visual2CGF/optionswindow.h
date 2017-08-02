@@ -4,30 +4,8 @@
 #include <QWidget>
 #include "ui_optionswindow.h"
 #include "mainwindow.h"
-#include "pugixml-1.8\pugixml.hpp"
+#include "Settings.h"
 #include <string>
-
-#define SETTING_FILE	"settings.xml"
-#define SETTING_REPO	"PathToRepo"
-#define SETTING_DATA3	"PathToData3"
-
-
-class ProgramSettings
-{
-public:
-	ProgramSettings();
-	~ProgramSettings();
-
-	void set_path_to_repo(std::string);
-	void set_path_to_data(std::string);
-	inline bool save() const { return mdoc.save_file(SETTING_FILE); }
-	std::string path_to_repo() const;
-	std::string path_to_data3() const;
-
-private:
-	pugi::xml_document mdoc;
-
-};
 
 
 class OptionsWindow : public QWidget
@@ -41,7 +19,7 @@ public:
 private:
 	Ui::OptionsWindow ui;
 	MainWindow *mpMain;
-	ProgramSettings *mSettings;
+	Settings *mSettings;
 
 	private slots:
 	void save_settings();

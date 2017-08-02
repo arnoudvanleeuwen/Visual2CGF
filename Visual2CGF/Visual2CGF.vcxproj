@@ -167,6 +167,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="optionswindow.cpp" />
+    <ClCompile Include="Settings.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mainwindow.h">
@@ -211,6 +215,10 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
     <ClInclude Include="GeneratedFiles\ui_optionswindow.h" />
+    <ClInclude Include="Settings.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <CustomBuild Include="optionswindow.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing optionswindow.h...</Message>
