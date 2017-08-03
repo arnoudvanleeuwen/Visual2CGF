@@ -10,11 +10,21 @@
 
 
 MovingModel::MovingModel(const std::string filename)
-	: file(filename) {
+	: file(filename.c_str()) {
+	//clean initial msgBuf value
+	memset(msgBuf, 0, sizeof(msgBuf));
+	if (!(db = mgOpenDb(file))) {
+		storeLastError();
+	}
+
 }
 
 MovingModel::~MovingModel() {
 
+}
+
+void MovingModel::storeLastError() {
+	mgGetLastError(msgBuf, strlen(msgBuf));
 }
 
 

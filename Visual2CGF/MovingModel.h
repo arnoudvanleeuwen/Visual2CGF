@@ -22,9 +22,16 @@ class MovingModel
 public:
 	MovingModel(const std::string filename);
 	~MovingModel();
+	inline std::string last_error() const { return msgBuf; }
 
 private:
-	const std::string file;
+	//members
+	const char* file;
+	mgrec *db;
+	char msgBuf[1024];
+
+	//methods
+	void storeLastError();
 };
 
 

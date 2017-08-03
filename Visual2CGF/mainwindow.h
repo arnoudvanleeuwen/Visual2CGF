@@ -4,8 +4,9 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_mainwindow.h"
 #include <qstring.h>
-#include <map>
+#include <vector>
 #include "NetworkManager.h"
+#include "MovingModel.h"
 
 class MainWindow : public QMainWindow
 {
@@ -24,8 +25,12 @@ public:
 	void write_error(const QString msg);
 
 private:
+	//members
 	NetworkManager *m_nmgr;
 	Ui::MainWindowClass ui;
+	std::vector<MovingModel*> list;
+
+	//methods
 	void populateEntityList(entity_types);
 	void parseDir(std::string path);
 

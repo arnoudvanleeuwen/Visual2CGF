@@ -105,7 +105,7 @@ void MainWindow::populateEntityList(entity_types e) {
 		break;
 	default:
 		return;
-	}
+	} 
 
 	//poulate list
 	parseDir(path);
@@ -115,6 +115,13 @@ void MainWindow::parseDir(std::string path) {
 	std::vector < std::string > vec;
 	DirIterator it;
 	it.find_files(".flt", path, vec, true);
+	for each (std::string file in vec) {
+		MovingModel *mm = new MovingModel(file.c_str());
+		list.push_back(mm);
+		if (mm->last_error().empty()) {
+			write_info(mm->last_error().c_str());
+		}
+	}
 }
 
 void MainWindow::showModels(const QString & s) {
