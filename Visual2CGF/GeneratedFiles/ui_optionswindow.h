@@ -36,6 +36,10 @@ public:
     QLabel *label_2;
     QLineEdit *line_pathtolocalrepo;
     QPushButton *btn_browse_localrepo;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *label_3;
+    QLineEdit *line_pathtolocalrepo_2;
+    QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
@@ -101,6 +105,30 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_3);
 
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        label_3 = new QLabel(OptionsWindow);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setMinimumSize(QSize(170, 23));
+
+        horizontalLayout_4->addWidget(label_3);
+
+        line_pathtolocalrepo_2 = new QLineEdit(OptionsWindow);
+        line_pathtolocalrepo_2->setObjectName(QStringLiteral("line_pathtolocalrepo_2"));
+        line_pathtolocalrepo_2->setMinimumSize(QSize(30, 23));
+        line_pathtolocalrepo_2->setMaximumSize(QSize(30, 16777215));
+        line_pathtolocalrepo_2->setMaxLength(1);
+
+        horizontalLayout_4->addWidget(line_pathtolocalrepo_2);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addLayout(horizontalLayout_4);
+
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer);
@@ -139,6 +167,7 @@ public:
         btn_browse_localmodels->setText(QApplication::translate("OptionsWindow", "...", Q_NULLPTR));
         label_2->setText(QApplication::translate("OptionsWindow", "Path to local visual-mm repository", Q_NULLPTR));
         btn_browse_localrepo->setText(QApplication::translate("OptionsWindow", "...", Q_NULLPTR));
+        label_3->setText(QApplication::translate("OptionsWindow", "Default External drive letter", Q_NULLPTR));
         btn_save->setText(QApplication::translate("OptionsWindow", "Save", Q_NULLPTR));
         btn_cancel->setText(QApplication::translate("OptionsWindow", "Cancel", Q_NULLPTR));
     } // retranslateUi

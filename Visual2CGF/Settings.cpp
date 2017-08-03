@@ -19,8 +19,10 @@ Settings::Settings() {
 		auto root = mdoc.append_child("Settings");
 		pugi::xml_node datanode = root.append_child(SETTING_DATA3);
 		pugi::xml_node reponode = root.append_child(SETTING_REPO);
+		pugi::xml_node letternode = root.append_child(SETTING_DRIVE);
 		datanode.append_child(pugi::node_pcdata).set_value("");
 		reponode.append_child(pugi::node_pcdata).set_value("");
+		letternode.append_child(pugi::node_pcdata).set_value("");
 		this->save();
 	}
 }
@@ -42,6 +44,10 @@ std::string Settings::path_to_repo() const {
 
 std::string Settings::path_to_data3() const {
 	return std::string(mdoc.document_element().child(SETTING_DATA3).child_value());
+}
+
+std::string Settings::drive_letter() const {
+	return std::string(mdoc.document_element().child(SETTING_DRIVE).child_value());
 }
 
 

@@ -39,7 +39,7 @@ public:
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
-    QComboBox *comboBox;
+    QComboBox *maintype_select;
     QSpacerItem *verticalSpacer;
     QListWidget *listWidget_2;
     QListWidget *console;
@@ -75,11 +75,11 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        comboBox = new QComboBox(centralWidget);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setMinimumSize(QSize(100, 0));
+        maintype_select = new QComboBox(centralWidget);
+        maintype_select->setObjectName(QStringLiteral("maintype_select"));
+        maintype_select->setMinimumSize(QSize(100, 0));
 
-        verticalLayout->addWidget(comboBox);
+        verticalLayout->addWidget(maintype_select);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -140,13 +140,16 @@ public:
         actionSettings->setText(QApplication::translate("MainWindowClass", "Settings", Q_NULLPTR));
         actionExit->setText(QApplication::translate("MainWindowClass", "Exit", Q_NULLPTR));
         actionAbout->setText(QApplication::translate("MainWindowClass", "About", Q_NULLPTR));
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
+        maintype_select->clear();
+        maintype_select->insertItems(0, QStringList()
          << QApplication::translate("MainWindowClass", "Fixed wing", Q_NULLPTR)
+         << QApplication::translate("MainWindowClass", "Lifeform", Q_NULLPTR)
+         << QApplication::translate("MainWindowClass", "Mine", Q_NULLPTR)
          << QApplication::translate("MainWindowClass", "Rotary wing", Q_NULLPTR)
          << QApplication::translate("MainWindowClass", "Submersible", Q_NULLPTR)
-         << QApplication::translate("MainWindowClass", "Surface vessel", Q_NULLPTR)
-         << QApplication::translate("MainWindowClass", "Tracked vehicle", Q_NULLPTR)
+         << QApplication::translate("MainWindowClass", "Surface", Q_NULLPTR)
+         << QApplication::translate("MainWindowClass", "Tracked", Q_NULLPTR)
+         << QApplication::translate("MainWindowClass", "Wheeled", Q_NULLPTR)
         );
         menuFile->setTitle(QApplication::translate("MainWindowClass", "File", Q_NULLPTR));
         menuHelp->setTitle(QApplication::translate("MainWindowClass", "Help", Q_NULLPTR));

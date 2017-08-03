@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------
 // NAME      : Settings.h
-// PURPOSE   : 
+// PURPOSE   : Manage the contents of the settings file
 // AUTHOR    : leeuwenab
 // DATE      : 8/2/2017 3:38:18 PM
 // COPYRIGHT : NETHERLANDS AEROSPACE CENTRE - NLR  (AOTS)
@@ -18,6 +18,7 @@
 #define SETTING_FILE	"settings.xml"
 #define SETTING_REPO	"PathToRepo"
 #define SETTING_DATA3	"PathToData3"
+#define SETTING_DRIVE	""
 
 
 class Settings
@@ -31,6 +32,7 @@ public:
 	inline bool save() const { return mdoc.save_file(SETTING_FILE); }
 	std::string path_to_repo() const;
 	std::string path_to_data3() const;
+	std::string drive_letter() const;
 
 private:
 	pugi::xml_document mdoc;

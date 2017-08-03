@@ -22,7 +22,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QComboBox" name="comboBox">
+           <widget class="QComboBox" name="maintype_select">
             <property name="minimumSize">
              <size>
               <width>100</width>
@@ -32,6 +32,16 @@
             <item>
              <property name="text">
               <string>Fixed wing</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Lifeform</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Mine</string>
              </property>
             </item>
             <item>
@@ -46,12 +56,17 @@
             </item>
             <item>
              <property name="text">
-              <string>Surface vessel</string>
+              <string>Surface</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Tracked vehicle</string>
+              <string>Tracked</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Wheeled</string>
              </property>
             </item>
            </widget>

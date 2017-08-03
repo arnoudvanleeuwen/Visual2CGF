@@ -4,23 +4,31 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_mainwindow.h"
 #include <qstring.h>
+#include <map>
 
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 
+		enum entity_types
+	{
+		FixedWing, LifeForm, Mine, RotaryWing, Submersible, Surface, Tracked, Wheeled
+	};
+
 public:
 	MainWindow(QWidget *parent = 0);
 	~MainWindow();
-	void write_info(const char* msg);
-	void write_warning(const char* msg);
-	void write_error(const char* msg);
+	void write_info(const QString msg);
+	void write_warning(const QString msg);
+	void write_error(const QString msg);
 
 private:
 	Ui::MainWindowClass ui;
+	void populateEntityList(entity_types);
 
 	private slots:
 	void showOptions();
+	void showModels(const QString&);
 };
 
 #endif // MAINWINDOW_H
