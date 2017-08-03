@@ -122,22 +122,124 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="line_pathtolocalrepo_2">
+      <widget class="QComboBox" name="drive_letter_select">
        <property name="minimumSize">
         <size>
-         <width>30</width>
-         <height>23</height>
+         <width>40</width>
+         <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>30</width>
+         <width>40</width>
          <height>16777215</height>
         </size>
        </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
+       <item>
+        <property name="text">
+         <string>A:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>B:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>D:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>E:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>F:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>G:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>H:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>I:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>J:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>K:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>L:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>M:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>O:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>R:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>R:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>S:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>T:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>V:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>W:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>X:</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Z:</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item>

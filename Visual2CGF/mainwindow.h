@@ -5,6 +5,7 @@
 #include "ui_mainwindow.h"
 #include <qstring.h>
 #include <map>
+#include "NetworkManager.h"
 
 class MainWindow : public QMainWindow
 {
@@ -12,7 +13,7 @@ class MainWindow : public QMainWindow
 
 		enum entity_types
 	{
-		FixedWing, LifeForm, Mine, RotaryWing, Submersible, Surface, Tracked, Wheeled
+		FixedWing, Land, LifeForm, Weapons, RotaryWing, Submersible, Surface
 	};
 
 public:
@@ -23,8 +24,10 @@ public:
 	void write_error(const QString msg);
 
 private:
+	NetworkManager *m_nmgr;
 	Ui::MainWindowClass ui;
 	void populateEntityList(entity_types);
+	void parseDir(std::string path);
 
 	private slots:
 	void showOptions();

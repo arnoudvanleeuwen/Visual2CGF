@@ -38,6 +38,10 @@ void Settings::set_path_to_data(std::string s) {
 	mdoc.document_element().child(SETTING_DATA3).text().set(s.c_str());
 }
 
+void Settings::set_default_drive(std::string s) {
+	mdoc.document_element().child(SETTING_DRIVE).text().set(s.c_str());
+}
+
 std::string Settings::path_to_repo() const {
 	return std::string(mdoc.document_element().child(SETTING_REPO).child_value());
 }
@@ -46,8 +50,8 @@ std::string Settings::path_to_data3() const {
 	return std::string(mdoc.document_element().child(SETTING_DATA3).child_value());
 }
 
-std::string Settings::drive_letter() const {
-	return std::string(mdoc.document_element().child(SETTING_DRIVE).child_value());
+QString Settings::drive_letter() const {
+	return std::string(mdoc.document_element().child(SETTING_DRIVE).child_value()).c_str();
 }
 
 

@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -38,7 +39,7 @@ public:
     QPushButton *btn_browse_localrepo;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_3;
-    QLineEdit *line_pathtolocalrepo_2;
+    QComboBox *drive_letter_select;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
@@ -114,13 +115,12 @@ public:
 
         horizontalLayout_4->addWidget(label_3);
 
-        line_pathtolocalrepo_2 = new QLineEdit(OptionsWindow);
-        line_pathtolocalrepo_2->setObjectName(QStringLiteral("line_pathtolocalrepo_2"));
-        line_pathtolocalrepo_2->setMinimumSize(QSize(30, 23));
-        line_pathtolocalrepo_2->setMaximumSize(QSize(30, 16777215));
-        line_pathtolocalrepo_2->setMaxLength(1);
+        drive_letter_select = new QComboBox(OptionsWindow);
+        drive_letter_select->setObjectName(QStringLiteral("drive_letter_select"));
+        drive_letter_select->setMinimumSize(QSize(40, 0));
+        drive_letter_select->setMaximumSize(QSize(40, 16777215));
 
-        horizontalLayout_4->addWidget(line_pathtolocalrepo_2);
+        horizontalLayout_4->addWidget(drive_letter_select);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -168,6 +168,30 @@ public:
         label_2->setText(QApplication::translate("OptionsWindow", "Path to local visual-mm repository", Q_NULLPTR));
         btn_browse_localrepo->setText(QApplication::translate("OptionsWindow", "...", Q_NULLPTR));
         label_3->setText(QApplication::translate("OptionsWindow", "Default External drive letter", Q_NULLPTR));
+        drive_letter_select->clear();
+        drive_letter_select->insertItems(0, QStringList()
+         << QApplication::translate("OptionsWindow", "A:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "B:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "D:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "E:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "F:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "G:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "H:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "I:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "J:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "K:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "L:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "M:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "O:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "R:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "R:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "S:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "T:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "V:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "W:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "X:", Q_NULLPTR)
+         << QApplication::translate("OptionsWindow", "Z:", Q_NULLPTR)
+        );
         btn_save->setText(QApplication::translate("OptionsWindow", "Save", Q_NULLPTR));
         btn_cancel->setText(QApplication::translate("OptionsWindow", "Cancel", Q_NULLPTR));
     } // retranslateUi

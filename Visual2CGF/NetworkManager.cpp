@@ -8,28 +8,28 @@
 
 #include "NetworkManager.h"
 #include "Settings.h"
+#include <qstring.h>
+#include <winerror.h>
 
 
-NetworkManager::NetworkManager(const std::string & drive, const std::string & user, const std::string & pw)
-	: m_drive(), m_user(), m_pw() {
-	m_drive = const_cast<wchar_t*>(std::wstring(drive.begin(), drive.end()).c_str());
-	m_user = const_cast<wchar_t*>(std::wstring(user.begin(), user.end()).c_str());
-	m_pw = const_cast<wchar_t*>(std::wstring(pw.begin(), pw.end()).c_str());
+NetworkManager::NetworkManager(wchar_t* drive, wchar_t* user, wchar_t* pw)
+	: m_drive(drive), m_user(user), m_pw(pw), m_connected(false) {
 
 	// Configure network connection
+	wchar_t letter[3];
 	Settings set;
+	set.drive_letter().toWCharArray(letter);
+	letter[2] = '\0';
+
 	m_nr = new NETRESOURCE();
 	memset(m_nr, 0, sizeof(*m_nr));
-
 	m_nr->dwType = RESOURCETYPE_DISK;
 	m_nr->lpRemoteName = m_drive;
-	m_nr->lpLocalName = const_cast<wchar_t*>(std::wstring(set.drive_letter().begin(), set.drive_letter().end()).c_str());
-
-	m_status = WNetUseConnection(NULL, m_nr, m_pw, m_user, NULL, NULL, NULL, NULL);
+	m_nr->lpLocalName = letter;
 }
 
-NetworkManager::~NetworkManager()
-{
+NetworkManager::~NetworkManager() {
+	disconnect();
 	delete m_nr, m_user, m_pw, m_drive;
 }
 
@@ -46,6 +46,21 @@ std::string NetworkManager::user() const {
 std::string NetworkManager::pw() const {
 	std::wstring wpw(m_pw);
 	return std::string(wpw.begin(), wpw.end());
+}
+
+int NetworkManager::connect() {
+	m_status = WNetUseConnection(NULL, m_nr, m_pw, m_user, NULL, NULL, NULL, NULL);
+	if(m_status == NO_ERROR) {
+		m_connected = true;
+	}
+	return m_status;
+}
+
+int NetworkManager::disconnect() {
+	if (m_status = WNetCancelConnectionW(m_drive, true) == NO_ERROR) {
+		m_connected = false;
+	}
+	return m_status;
 }
 
 

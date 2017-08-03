@@ -21,16 +21,20 @@ class NetworkManager
 {
 
 public:
-	NetworkManager(const std::string & drive, const std::string & user, const std::string & pw);
+	NetworkManager(wchar_t* drive, wchar_t* user, wchar_t* pw);
 	~NetworkManager();
 	std::string drive() const;
 	std::string user() const;
 	std::string pw() const;
 	inline int status() const { return m_status; }
+	inline int connected() const { return m_connected; }
+	int connect();
+	int disconnect();
 
 private:
 	wchar_t *m_drive, *m_user, *m_pw;
 	int m_status;
+	bool m_connected;
 	NETRESOURCE *m_nr;
 };
 

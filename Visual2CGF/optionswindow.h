@@ -25,6 +25,7 @@ private:
 	void save_settings();
 	void browse_localrepo();
 	void browse_dbdev2();
+	void setDriveLetter(const QString &);
 };
 
 #endif // OPTIONSWINDOW_H
