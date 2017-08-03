@@ -33,6 +33,7 @@
 
 # Visual studio 2015 files
 *.VC.db
+*.opendb
 *.log
 *.tlog
 *.pdb  
