@@ -51,7 +51,7 @@ public:
     {
         if (OptionsWindow->objectName().isEmpty())
             OptionsWindow->setObjectName(QStringLiteral("OptionsWindow"));
-        OptionsWindow->resize(540, 164);
+        OptionsWindow->resize(535, 163);
         verticalLayout = new QVBoxLayout(OptionsWindow);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);

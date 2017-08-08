@@ -48,7 +48,6 @@ int DirIterator::find_in_current(std::string ext, boost::filesystem::path root, 
 }
 
 int DirIterator::find_recursive(std::string ext, boost::filesystem::path root, std::vector<std::string> & vec) {
-
 	filesystem::recursive_directory_iterator end;
 
 	for (filesystem::recursive_directory_iterator it(root); it != end; ++it) {
@@ -57,10 +56,20 @@ int DirIterator::find_recursive(std::string ext, boost::filesystem::path root, s
 		if (filesystem::is_directory(it->path())) {
 			find_recursive(ext, it->path(), vec);
 		}
-		//push files to the vector
+		//If file, check file extension
 		else if (it->path().extension() == ext) {
 			if (std::find(vec.begin(), vec.end(), it->path().string()) == vec.end()) {
-				vec.push_back(it->path().string());
+				// Convert path to std::string
+				size_t pos;
+				std::string p = it->path().string();
+				// Make sure seperators are windows style
+				while ((pos = p.find('/')) != std::string::npos) {
+					p.replace(pos, 1, "\\");
+				}
+				// Push path string to vector if not already present
+				if (std::find(vec.begin(), vec.end(), p) == vec.end()) {
+					vec.push_back(p);
+				}
 			}
 		}
 	}

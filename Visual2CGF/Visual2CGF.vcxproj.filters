@@ -71,7 +71,10 @@
     <ClCompile Include="DirIterator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MovingModel.cpp">
+    <ClCompile Include="OpenFlight\Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenFlight\Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -108,7 +111,13 @@
     <ClInclude Include="DirIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MovingModel.h">
+    <ClInclude Include="ConsoleMessage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenFlight\Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenFlight\Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

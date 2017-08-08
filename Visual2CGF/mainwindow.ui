@@ -36,12 +36,12 @@
             </item>
             <item>
              <property name="text">
-              <string>Lifeform</string>
+              <string>Land</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Mine</string>
+              <string>Lifeform</string>
              </property>
             </item>
             <item>
@@ -61,12 +61,7 @@
             </item>
             <item>
              <property name="text">
-              <string>Tracked</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Wheeled</string>
+              <string>Weapons</string>
              </property>
             </item>
            </widget>
@@ -87,7 +82,11 @@
          </layout>
         </item>
         <item>
-         <widget class="QListWidget" name="listWidget_2"/>
+         <widget class="QListWidget" name="model_list">
+          <property name="sortingEnabled">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -104,6 +103,33 @@
           <width>16777215</width>
           <height>500</height>
          </size>
+        </property>
+        <property name="selectionRectVisible">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_clear">
+        <property name="text">
+         <string>Clear</string>
         </property>
        </widget>
       </item>
@@ -124,6 +150,8 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionSave_console"/>
+    <addaction name="separator"/>
     <addaction name="actionSettings"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
@@ -159,6 +187,11 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionSave_console">
+   <property name="text">
+    <string>Export console</string>
    </property>
   </action>
  </widget>

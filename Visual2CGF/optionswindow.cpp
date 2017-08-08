@@ -1,6 +1,7 @@
 #include "optionswindow.h"
 #include "pugixml-1.8\pugixml.hpp"
 #include <qfiledialog.h>
+#include "ConsoleMessage.h"
 
 OptionsWindow::OptionsWindow(MainWindow *main, QWidget *parent)
 	: QWidget(parent), mpMain(main), mSettings() {
@@ -23,12 +24,11 @@ OptionsWindow::OptionsWindow(MainWindow *main, QWidget *parent)
 }
 
 OptionsWindow::~OptionsWindow() {
-
 }
 
 void OptionsWindow::save_settings() {
 	if (!mSettings->save()) {
-		mpMain->write_warning("Could not save settings file");
+		mpMain->write_msg(ConsoleMessage("Could not save settings", MESSAGE_WARNING));
 	}
 	else close();
 }

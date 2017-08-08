@@ -4,9 +4,16 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_mainwindow.h"
 #include <qstring.h>
+#include <map>
 #include <vector>
+#include <boost/filesystem.hpp>
+
+#include "ConsoleMessage.h"
 #include "NetworkManager.h"
-#include "MovingModel.h"
+#include "OpenFlight/Model.h"
+
+typedef std::vector<ConsoleMessage> msg_list;
+typedef msg_list::iterator msg_list_it;
 
 class MainWindow : public QMainWindow
 {
@@ -14,29 +21,29 @@ class MainWindow : public QMainWindow
 
 		enum entity_types
 	{
-		FixedWing, Land, LifeForm, Weapons, RotaryWing, Submersible, Surface
+		FixedWing, Land, LifeForm, RotaryWing, Submersible, Surface, Weapons
 	};
 
 public:
 	MainWindow(QWidget *parent = 0);
 	~MainWindow();
-	void write_info(const QString msg);
-	void write_warning(const QString msg);
-	void write_error(const QString msg);
+	void write_msg(const ConsoleMessage msg);
 
 private:
 	//members
 	NetworkManager *m_nmgr;
 	Ui::MainWindowClass ui;
-	std::vector<MovingModel*> list;
-
-	//methods
-	void populateEntityList(entity_types);
-	void parseDir(std::string path);
+	std::map<QListWidgetItem*, OpenFlight::Model*> models;
+	msg_list messages;
+	boost::filesystem::path mPath;
 
 	private slots:
+	void findFltFiles(int type);
 	void showOptions();
-	void showModels(const QString&);
+	void onModelDoubleClick(QListWidgetItem *item);
+	void saveConsole();
+	void clearConsole();
 };
+
 
 #endif // MAINWINDOW_H

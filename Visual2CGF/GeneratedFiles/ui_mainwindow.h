@@ -20,6 +20,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -34,6 +35,7 @@ public:
     QAction *actionSettings;
     QAction *actionExit;
     QAction *actionAbout;
+    QAction *actionSave_console;
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_2;
@@ -41,8 +43,11 @@ public:
     QVBoxLayout *verticalLayout;
     QComboBox *maintype_select;
     QSpacerItem *verticalSpacer;
-    QListWidget *listWidget_2;
+    QListWidget *model_list;
     QListWidget *console;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *btn_clear;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuHelp;
@@ -60,6 +65,8 @@ public:
         actionExit->setObjectName(QStringLiteral("actionExit"));
         actionAbout = new QAction(MainWindowClass);
         actionAbout->setObjectName(QStringLiteral("actionAbout"));
+        actionSave_console = new QAction(MainWindowClass);
+        actionSave_console->setObjectName(QStringLiteral("actionSave_console"));
         centralWidget = new QWidget(MainWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout_3 = new QVBoxLayout(centralWidget);
@@ -88,10 +95,11 @@ public:
 
         horizontalLayout->addLayout(verticalLayout);
 
-        listWidget_2 = new QListWidget(centralWidget);
-        listWidget_2->setObjectName(QStringLiteral("listWidget_2"));
+        model_list = new QListWidget(centralWidget);
+        model_list->setObjectName(QStringLiteral("model_list"));
+        model_list->setSortingEnabled(false);
 
-        horizontalLayout->addWidget(listWidget_2);
+        horizontalLayout->addWidget(model_list);
 
 
         verticalLayout_2->addLayout(horizontalLayout);
@@ -100,11 +108,27 @@ public:
         console->setObjectName(QStringLiteral("console"));
         console->setMinimumSize(QSize(0, 200));
         console->setMaximumSize(QSize(16777215, 500));
+        console->setSelectionRectVisible(true);
 
         verticalLayout_2->addWidget(console);
 
 
         verticalLayout_3->addLayout(verticalLayout_2);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
+
+        btn_clear = new QPushButton(centralWidget);
+        btn_clear->setObjectName(QStringLiteral("btn_clear"));
+
+        horizontalLayout_2->addWidget(btn_clear);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_2);
 
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
@@ -124,6 +148,8 @@ public:
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuHelp->menuAction());
+        menuFile->addAction(actionSave_console);
+        menuFile->addSeparator();
         menuFile->addAction(actionSettings);
         menuFile->addSeparator();
         menuFile->addAction(actionExit);
@@ -140,17 +166,18 @@ public:
         actionSettings->setText(QApplication::translate("MainWindowClass", "Settings", Q_NULLPTR));
         actionExit->setText(QApplication::translate("MainWindowClass", "Exit", Q_NULLPTR));
         actionAbout->setText(QApplication::translate("MainWindowClass", "About", Q_NULLPTR));
+        actionSave_console->setText(QApplication::translate("MainWindowClass", "Export console", Q_NULLPTR));
         maintype_select->clear();
         maintype_select->insertItems(0, QStringList()
          << QApplication::translate("MainWindowClass", "Fixed wing", Q_NULLPTR)
+         << QApplication::translate("MainWindowClass", "Land", Q_NULLPTR)
          << QApplication::translate("MainWindowClass", "Lifeform", Q_NULLPTR)
-         << QApplication::translate("MainWindowClass", "Mine", Q_NULLPTR)
          << QApplication::translate("MainWindowClass", "Rotary wing", Q_NULLPTR)
          << QApplication::translate("MainWindowClass", "Submersible", Q_NULLPTR)
          << QApplication::translate("MainWindowClass", "Surface", Q_NULLPTR)
-         << QApplication::translate("MainWindowClass", "Tracked", Q_NULLPTR)
-         << QApplication::translate("MainWindowClass", "Wheeled", Q_NULLPTR)
+         << QApplication::translate("MainWindowClass", "Weapons", Q_NULLPTR)
         );
+        btn_clear->setText(QApplication::translate("MainWindowClass", "Clear", Q_NULLPTR));
         menuFile->setTitle(QApplication::translate("MainWindowClass", "File", Q_NULLPTR));
         menuHelp->setTitle(QApplication::translate("MainWindowClass", "Help", Q_NULLPTR));
     } // retranslateUi
